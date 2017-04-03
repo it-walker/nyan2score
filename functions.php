@@ -1,13 +1,13 @@
 <?php
 /**
- * nyan2life functions and definitions
+ * nyan2score functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package nyan2life
+ * @package nyan2score
  */
 
-if ( ! function_exists( 'nyan2life_setup' ) ) :
+if ( ! function_exists( 'nyan2score_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'nyan2life_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function nyan2life_setup() {
+function nyan2score_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on nyan2life, use a find and replace
-	 * to change 'nyan2life' to the name of your theme in all the template files.
+	 * If you're building a theme based on nyan2score, use a find and replace
+	 * to change 'nyan2score' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'nyan2life', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'nyan2score', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -44,8 +44,10 @@ function nyan2life_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'nyan2life' ),
+		'menu-1' => esc_html__( 'Primary', 'nyan2score' ),
 	) );
+
+	require_once("inc/wp-bootstrap-navwalker.php"); 
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -60,7 +62,7 @@ function nyan2life_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'nyan2life_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'nyan2score_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -69,7 +71,7 @@ function nyan2life_setup() {
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
 endif;
-add_action( 'after_setup_theme', 'nyan2life_setup' );
+add_action( 'after_setup_theme', 'nyan2score_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -78,44 +80,44 @@ add_action( 'after_setup_theme', 'nyan2life_setup' );
  *
  * @global int $content_width
  */
-function nyan2life_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'nyan2life_content_width', 640 );
+function nyan2score_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'nyan2score_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'nyan2life_content_width', 0 );
+add_action( 'after_setup_theme', 'nyan2score_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function nyan2life_widgets_init() {
+function nyan2score_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'nyan2life' ),
+		'name'          => esc_html__( 'Sidebar', 'nyan2score' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'nyan2life' ),
+		'description'   => esc_html__( 'Add widgets here.', 'nyan2score' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'nyan2life_widgets_init' );
+add_action( 'widgets_init', 'nyan2score_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function nyan2life_scripts() {
-	wp_enqueue_style( 'nyan2life-style', get_stylesheet_uri() );
+function nyan2score_scripts() {
+	wp_enqueue_style( 'nyan2score-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'nyan2life-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'nyan2score-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'nyan2life-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'nyan2score-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'nyan2life_scripts' );
+add_action( 'wp_enqueue_scripts', 'nyan2score_scripts' );
 
 /**
  * Implement the Custom Header feature.

@@ -1,8 +1,8 @@
 <?php
 /**
- * nyan2life Theme Customizer
+ * nyan2score Theme Customizer
  *
- * @package nyan2life
+ * @package nyan2score
  */
 
 /**
@@ -10,17 +10,17 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function nyan2life_customize_register( $wp_customize ) {
+function nyan2score_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'nyan2life_customize_register' );
+add_action( 'customize_register', 'nyan2score_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function nyan2life_customize_preview_js() {
-	wp_enqueue_script( 'nyan2life_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+function nyan2score_customize_preview_js() {
+	wp_enqueue_script( 'nyan2score_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
-add_action( 'customize_preview_init', 'nyan2life_customize_preview_js' );
+add_action( 'customize_preview_init', 'nyan2score_customize_preview_js' );

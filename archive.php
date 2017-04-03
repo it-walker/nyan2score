@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package nyan2life
+ * @package nyan2score
  */
 
 get_header(); ?>
