@@ -47,7 +47,8 @@ function nyan2score_setup() {
 		'menu-1' => esc_html__( 'Primary', 'nyan2score' ),
 	) );
 
-	require_once("inc/wp-bootstrap-navwalker.php"); 
+	// Register Custom Navigation Walker
+	require_once('inc/wp-bootstrap-navwalker.php');
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments

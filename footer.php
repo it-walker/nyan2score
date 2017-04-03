@@ -17,7 +17,7 @@
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'nyan2score' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'nyan2score' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'nyan2score' ), 'nyan2score', '<a href="https://automattic.com/" rel="designer">Underscores.me</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'nyan2score' ), 'nyan2score', '<a href="https://automattic.com/" rel="designer">Hiroki Sato</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
