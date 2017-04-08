@@ -24,7 +24,7 @@ function nyan2score_setup() {
 	 */
 	load_theme_textdomain( 'nyan2score', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
+	// フィードリンクの設定
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
@@ -36,7 +36,7 @@ function nyan2score_setup() {
 	add_theme_support( 'title-tag' );
 
 	/*
-	 * Enable support for Post Thumbnails on posts and pages.
+	 * 投稿サムネイル
 	 *
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
@@ -87,7 +87,7 @@ function nyan2score_content_width() {
 add_action( 'after_setup_theme', 'nyan2score_content_width', 0 );
 
 /**
- * Register widget area.
+ * ウィジェットエリアを設定する
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
@@ -95,7 +95,7 @@ function nyan2score_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'nyan2score' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'nyan2score' ),
+		'description'   => esc_html__( 'サイドバー部分のウィジェットエリアです', 'nyan2score' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -105,9 +105,11 @@ function nyan2score_widgets_init() {
 add_action( 'widgets_init', 'nyan2score_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
+ * scripts と styles をキューに入れます。
  */
 function nyan2score_scripts() {
+	// bootstrapのjavascriptを呼び出し
+	wp_enqueue_script( 'bootstrap-script', get_template_directory_uri() . '/assets/javascripts/bootstrap.min.js', array(), '1.0.0', true );
 	wp_enqueue_style( 'nyan2score-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'nyan2score-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -119,6 +121,30 @@ function nyan2score_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'nyan2score_scripts' );
+
+// postclassで奇数と偶数用のクラスを追加。
+function additional_post_classes( $classes ) {
+	global $wp_query;
+	if( $wp_query->found_posts < 1 ) {
+		return $classes;
+	}
+	if( $wp_query->current_post == 0 ) {
+		$classes[] = 'first';
+	}
+	if( $wp_query->current_post % 2 ) {
+		$classes[] = 'even';
+	} else {
+		$classes[] = 'odd';
+	}
+	if( $wp_query->current_post == ( $wp_query->post_count - 1 ) ) {
+		$classes[] = 'last';
+	}
+	return $classes;
+}
+add_filter( 'post_class', 'additional_post_classes' );
+
+// アイキャッチ画像を有効にする。
+add_theme_support('post-thumbnails'); 
 
 /**
  * Implement the Custom Header feature.

@@ -15,6 +15,7 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
 <?php wp_deregister_script("jquery"); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -59,7 +60,7 @@
 				</div>
 				<?php 
 					wp_nav_menu(array(
-						'menu-id'         => 'primary-menu',
+						'menu-id'         => 'primary-menu',	// functions.phpに登録したregister_nav_menu()の第1引数
 						'menu'            => 'primary',
 						'theme_location'  => 'menu-1',
 						'depth'           => 2,
@@ -73,5 +74,16 @@
 				?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+		<!-- Full Width Image Header -->
+		<header class="header-image">
+				<div class="headline">
+						<div class="container">
+								<h1>＠ITうぉーかー</h1>
+								<h2>歩くホスピタリティ</h2>
+						</div>
+				</div>
+		</header>
+		<div id="page" class="site">
+			<div id="content" class="site-content row">
 
-	<div id="content" class="site-content">
+

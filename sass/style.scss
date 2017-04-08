@@ -47,7 +47,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Galleries
 --------------------------------------------------------------*/
 
+// 変数
 @import "variables-site/variables-site";
+// mixin
 @import "mixins/mixins-master";
 
 /*--------------------------------------------------------------
@@ -67,6 +69,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 
 @import "elements/elements";
+@import "elements/cards";
 
 /*--------------------------------------------------------------
 # Forms
