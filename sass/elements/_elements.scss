@@ -1,0 +1,67 @@
+@charset "utf-8";
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: inherit;
+}
+
+body {
+  background: $color__background-body;
+  /* Fallback for when there is no custom background color defined. */
+}
+
+blockquote,
+q {
+  quotes: "" "";
+  &:before,
+  &:after {
+    content: "";
+  }
+}
+
+hr {
+  background-color: $color__background-hr;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em;
+}
+
+@import "lists";
+img {
+  height: auto;
+  /* Make sure images are scaled correctly. */
+  max-width: 100%;
+  /* Adhere to container width. */
+}
+
+figure {
+  margin: 1em 0;
+  /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+ul,
+ol {
+  // リストの空きなしバージョン
+  .none-style {
+    margin: 0;
+  } // 通常リスト
+  .standard-style {
+    margin: 0 0 1.5em 3em;
+  }
+}
+
+.header2 {
+  padding: 15px;
+  margin: 50px 0 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: #f7f7f7;
+  border-top: 3px solid #ddd;
+}
+
+@import "tables";

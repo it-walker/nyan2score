@@ -9,12 +9,12 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package nyan2life
+ * @package nyan2score
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area col-lg-6 col-xs-12">
 		<main id="main" class="site-main" role="main">
 
 		<?php

@@ -4,44 +4,48 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package nyan2life
+ * @package nyan2score
  */
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_single() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
 
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php nyan2life_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-	</header><!-- .entry-header -->
+<!--PEN CODE-->
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'blog-card' ); ?>>
+	<div class="photo">
+        <?php if (has_post_thumbnail()) : ?>
+            <!--アイキャッチ画像-->
+            <?php the_post_thumbnail('thumbnail'); ?>
+        <?php else : ?>
+            <!--　アイキャッチ画像がないときはNo Image-->
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/itwalker.png" width="200" height="100" alt="デフォルト画像" />
+        <?php endif ; ?>
+    </div>
+	<ul class="details">
+		<li class="author"><a href="#"><?php the_author(); ?></a></li>
+		<li class="date"><?php the_date('Y-m-d', '<h2>', '</h2>'); ?></li>
+		<li class="tags">
+			<ul>
+				<?php
+				$posttags = get_the_tags();
+				if ( $posttags ) {
+					foreach ( $posttags as $tag ) { 
+                ?>
+				<li><a href="#" ><?php $tag->name ?></a></li>
+					<?php }
+				}
+				?>
+			</ul>
+		</li>
+	</ul>
+	<div class="description">
+		<h1>Learning to Code</h1>
+		<h2>Opening a door to the future</h2>
+		<p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+		<a href="#">Read More</a>
+	</div>
+</article>
+<!--END PEN CODE-->
 
-	<div class="entry-content">
-		<?php
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'nyan2life' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'nyan2life' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php nyan2life_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
