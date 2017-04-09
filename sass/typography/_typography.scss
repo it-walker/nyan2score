@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 body,
 button,
 input,
@@ -7,6 +9,11 @@ textarea {
     font-family: $font__main;
     @include font-size(1);
     line-height: $font__line-height-body;
+}
+
+@font-face {
+    font-family: "ぼくたちのゴシック２ボールド";
+    src: url("assets/fonts/boku2b/Boku2-Bold.otf") format("opentype");
 }
 
 @import "headings";

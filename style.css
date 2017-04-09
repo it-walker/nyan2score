@@ -6034,11 +6034,14 @@ input,
 select,
 textarea {
   color: #404040;
-  font-family: sans-serif;
+  font-family: "ぼくたちのゴシック２ボールド";
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
 
+@font-face {
+  font-family: "ぼくたちのゴシック２ボールド";
+  src: url("assets/fonts/boku2b/Boku2-Bold.otf") format("opentype"); }
 h1,
 h2,
 h3,
@@ -6247,7 +6250,7 @@ table {
     background: rgba(0, 0, 0, 0.6);
     box-sizing: border-box;
     color: #fff;
-    font-family: "Open Sans";
+    font-family: "ぼくたちのゴシック２ボールド";
     list-style: none;
     margin: 0;
     padding: 10px 15px;
@@ -6285,12 +6288,12 @@ table {
     box-sizing: border-box;
     position: relative; }
     .blog-card .description h1 {
-      font-family: "Roboto";
+      font-family: "ぼくたちのゴシック２ボールド";
       line-height: 1em;
       margin: 0 0 10px 0; }
     .blog-card .description h2 {
       color: #9b9b9b;
-      font-family: "Open Sans";
+      font-family: "ぼくたちのゴシック２ボールド";
       line-height: 1.2em;
       text-transform: uppercase;
       font-size: 1em;
