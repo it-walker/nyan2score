@@ -18,12 +18,12 @@
             <?php the_post_thumbnail('thumbnail'); ?>
         <?php else : ?>
             <!--　アイキャッチ画像がないときはNo Image-->
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/itwalker.png" width="200" height="100" alt="デフォルト画像" />
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/itwalker.png" alt="デフォルト画像" />
         <?php endif ; ?>
     </div>
 	<ul class="details">
 		<li class="author"><a href="#"><?php the_author(); ?></a></li>
-		<li class="date"><?php the_date('Y-m-d', '<h2>', '</h2>'); ?></li>
+		<li class="date"><?php the_date('Y-m-d'); ?></li>
 		<li class="tags">
 			<ul>
 				<?php
@@ -39,10 +39,31 @@
 		</li>
 	</ul>
 	<div class="description">
-		<h1>Learning to Code</h1>
-		<h2>Opening a door to the future</h2>
-		<p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-		<a href="#">Read More</a>
+		<h1><?php
+$titleCountMax = 10;
+if ( $titleCountMax < mb_strlen( $post->post_title, 'UTF-8' ) ) {
+	echo mb_substr( $post->post_title, 0, $titleCountMax, 'UTF-8' ).'……';
+} else {
+	echo $post->post_title;
+}
+?></h1>
+		<p>
+<?php
+//brだけ残す
+$charCountMax = 45;
+if ( $charCountMax < mb_strlen( $post->post_content, 'UTF-8' ) ) {
+	echo mb_substr( strip_tags( $post->post_content, '<br>' ), 0, $charCountMax, 'UTF-8' ).'……';
+} else {
+	echo strip_tags( $post->post_content, '<br>' );
+}
+//brとspanを残す
+if ( $charCountMax < mb_strlen( $post->post_content, 'UTF-8') ) {
+	echo mb_substr( strip_tags( $post->post_content, '<br><span>' ), 0, $charCountMax, 'UTF-8' ).'……';
+} else {
+	echo strip_tags( $post->post_content, '<br><span>' );
+}
+?></p>
+<p class="alingrignt"><a href="#">Read More</a></p>
 	</div>
 </article>
 <!--END PEN CODE-->
