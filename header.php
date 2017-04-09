@@ -24,9 +24,8 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div id="page" class="container">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'nyan2score' ); ?></a>
-
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<?php
@@ -60,30 +59,32 @@
 				</div>
 				<?php 
 					wp_nav_menu(array(
-						'menu-id'         => 'primary-menu',	// functions.phpに登録したregister_nav_menu()の第1引数
+						// functions.phpに登録したregister_nav_menu()の第1引数
+						'menu-id'         => 'nyan2score',
+						// 出力するメニューの名前（管理画面「外観」→「メニュー」の設定ページの「メニューの名前」欄で設定した名前）
 						'menu'            => 'primary',
+						// 出力するメニューの種類（register_nav_menusで登録した名前）
 						'theme_location'  => 'menu-1',
+						// 出力するメニュー階層の上限
 						'depth'           => 2,
+						// ul 要素を囲む要素
 						'container'       => 'div',
+						// メニューの ul 要素を囲む要素に割り当てる クラス名
 						'container_class' => 'collapse navbar-collapse',
+						// メニューの ul 要素を囲む要素に割り当てる ID
 						'container_id'    => 'bs-example-navbar-collapse-1',
+						// メニューの ul 要素に割り当てる クラス名
 						'menu_class'      => 'nav navbar-nav',
+						// メニューが存在しないときに実行する関数名
 						'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+						// 
 						'walker'          => new wp_bootstrap_navwalker())
 						);
 				?>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
-		<!-- Full Width Image Header -->
-		<header class="header-image">
-				<div class="headline">
-						<div class="container">
-								<h1>＠ITうぉーかー</h1>
-								<h2>歩くホスピタリティ</h2>
-						</div>
-				</div>
-		</header>
-		<div id="page" class="site">
-			<div id="content" class="site-content row">
+	<div id="page" class="site">
+		<div id="content" class="site-content row">
 
 

@@ -16,6 +16,9 @@ if ( ! function_exists( 'nyan2score_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function nyan2score_setup() {
+	// Register Custom Navigation Walker
+	require_once('inc/wp-bootstrap-navwalker.php');
+
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
@@ -44,11 +47,9 @@ function nyan2score_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'nyan2score' ),
+		'menu-1' => esc_html__( 'nyan2score' ),
+		// 'menu-1' => esc_html__( 'Primary', 'nyan2score' ),
 	) );
-
-	// Register Custom Navigation Walker
-	require_once('inc/wp-bootstrap-navwalker.php');
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
