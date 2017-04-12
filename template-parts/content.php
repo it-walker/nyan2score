@@ -9,8 +9,6 @@
 
 ?>
 
-
-<!--PEN CODE-->
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'blog-card' ); ?>>
 	<div class="photo">
         <?php if (has_post_thumbnail()) : ?>
@@ -63,10 +61,9 @@ if ( $charCountMax < mb_strlen( $post->post_content, 'UTF-8') ) {
 	echo strip_tags( $post->post_content, '<br><span>' );
 }
 ?></p>
-<p class="alingrignt"><a href="#">Read More</a></p>
+<p class="alingrignt"><a href="<?php echo get_permalink(); ?>">Read More</a></p>
 	</div>
 </article>
-<!--END PEN CODE-->
 
 
 

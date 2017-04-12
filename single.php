@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area col-sm-8">
 		<main id="main" class="site-main" role="main">
 
 		<?php
@@ -25,8 +25,10 @@ get_header(); ?>
 			endif;
 
 		endwhile; // End of the loop.
+		
 		?>
-
+<?php previous_post_link('%link','古い記事へ'); ?>
+<?php next_post_link('%link','新しい記事へ'); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

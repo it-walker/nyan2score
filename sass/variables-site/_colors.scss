@@ -16,9 +16,18 @@ $color__text-input-focus: #111;
 $color__link: royalblue;
 $color__link-visited: purple;
 $color__link-hover: midnightblue;
+$color__link-focus: $color__link-hover;
+$color__link-active: $color__link-hover;
 $color__text-main: #404040;
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+
+/* 基本配色 */
+$color__base: #ffffe7;
+$color__sub: #c6e5f3;
+$color__accent1: #539ddb;
+$color__accent2: #084A83;
